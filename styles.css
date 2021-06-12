@@ -1,0 +1,111 @@
+:root{
+--duration: 2s;
+ }
+
+
+body{
+    background-color: #0463C6;
+}
+
+@keyframes spin{
+    0% {transform: rotate(0deg) scale(1)}
+    50% {transform: rotate(120deg) scale(0)}
+    70% {transform: rotate(-120deg) scale(0)}
+    100% {transform: rotate(0) scale(1)}
+}
+
+@keyframes spinCross{
+    0% {transform: rotate(45deg) scale(1)}
+    50% {transform: rotate(90deg) scale(0)}
+    70% {transform: rotate(-90deg) scale(0)}
+    100% {transform: rotate(45) scale(1)}
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 130px 130px; 
+    position: relative;
+    padding: 5px;
+    position: relative;
+    height: 250px;
+    width: 250px;
+   /* border: 1px solid white; */
+    margin: 0 auto;
+}
+
+.triangle{  
+    z-index: 1;
+    transform-origin: 50% 50%;
+    margin: 5px;
+    height: 0;
+    width: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 90px solid white;
+
+    animation: spin 3s ease-in-out infinite; 
+}
+
+.triangle::after{ 
+    content: " ";
+    z-index: 2;
+    transform-origin: 50% 50%;
+    opacity: 1;
+    float: left;
+    margin: 5px;
+    height: 0;
+    width: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 90px solid #0463C6;
+    transform: scale(.80) translateX(-69px) translateY(-3px);
+}
+
+.circle{ 
+    box-sizing: border-box;
+    transform-origin: 50% 50%;
+    margin: 5px;
+    height: 90px;
+    width: 90px;
+    background-color: #0463C6;
+    border: 5px solid white;
+    border-radius: 50%;
+
+    animation: spin 3s ease-in-out .5s infinite;
+}
+
+.square{ 
+    box-sizing: border-box;
+    z-index: 1;
+    transform-origin: 50% 50%;
+    float: right;
+    margin: 5px;
+    height: 90px;
+    width: 90px;
+    background-color: #0463C6;
+    border: 5px solid white;
+
+    animation: spin 3s ease-in-out 1s infinite;
+}
+
+
+.cross {
+    background: white;
+    height: 100px;
+    position: relative;
+    width: 5px;
+    margin-left: 50px;
+
+    transform: rotate(45deg);
+    animation: spinCross 3s ease-in-out 2s infinite;
+  }
+  
+  .cross:after {
+    background: white;
+    content: "";
+    height: 5px;
+    left: -47px;
+    position: absolute;
+    top: 47px;
+    width: 100px;
+  }
